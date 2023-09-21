@@ -6,6 +6,9 @@ const { orderRouter } = require("./routes/orderRoute");
 const app = express();
 app.use(express.json());
 
+app.use("/", (req, res) => {
+  res.send({ message: "Welcome Masai Library" });
+});
 app.use("/api/user", userRouter);
 app.use("/api/books", bookRouter);
 app.use("/api", orderRouter);
