@@ -1,4 +1,6 @@
 const express = require("express");
+const { auth } = require("../middleware/auth");
+
 const {
   allOrdersData,
   createOrders,
@@ -6,6 +8,6 @@ const {
 const orderRouter = express.Router();
 
 orderRouter.get("/orders", allOrdersData);
-orderRouter.post("/order", createOrders);
+orderRouter.post("/order", auth, createOrders);
 
 module.exports = { orderRouter };
